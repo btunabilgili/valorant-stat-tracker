@@ -10,7 +10,7 @@ function LeaderBoardTable(props) {
       .then((data) => setData(data));
 
     // empty dependency array means this effect will only run once (like componentDidMount in classes)
-  }, []);
+  }, [props.region]);
 
   return (
     <>
