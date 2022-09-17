@@ -7,11 +7,11 @@ function LeaderboardsPage() {
   return (
     <Container>
       <Row>
-        <Col>
+        <Col className="d-flex justify-content-center">
           <LeaderBoardTable region={"eu"} />
         </Col>
-        <Col>
-          <LeaderBoardTable region={"na"} />
+        <Col className="d-flex justify-content-center">
+          <LeaderBoardTable region={"na"} bordered={true} />
         </Col>
       </Row>
     </Container>
