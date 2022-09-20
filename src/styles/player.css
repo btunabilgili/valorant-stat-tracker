@@ -6,11 +6,13 @@
 .match-won {
     background-color: #222c50;
     border-left: 8px solid #36436f;
+    border-right: 8px solid #36436f;
 }
 
 .match-lost {
     background-color: #31202c;
     border-left: 8px solid #54262e;
+    border-right: 8px solid #54262e;
 }
 
 .player-portrait {
