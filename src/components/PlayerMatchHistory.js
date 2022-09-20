@@ -1,5 +1,4 @@
 import Container from "react-bootstrap/Container";
-import SearchIcon from '@mui/icons-material/Search';
 import { useEffect, useState } from "react";
 import CircularProgress from "@mui/material/CircularProgress";
 import ServerDown from "./ServerDown";
