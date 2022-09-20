@@ -1,0 +1,19 @@
+.search-section {
+    background-image: url(https://dak.gg/valorant/images/bg/bg-landing-search.jpg);
+    background-size: cover;
+    background-position: center;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.brand{
+    font-size: 15px;
+}
+
+.brand a{
+    color: rgb(255, 70, 85) !important;
+    font-size: 15px;
+}

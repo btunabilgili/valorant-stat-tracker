@@ -1,0 +1,87 @@
+    html,
+    body {
+        background-color: #191d2c !important;
+    }
+    /* Extra small devices (phones, 600px and down) */
+    @media only screen and (max-width: 600px) {
+        table {
+            font-size: 11px;
+        }
+
+        .player-search-bar {
+            width: 80%;
+        }
+    }
+
+    /* Small devices (portrait tablets and large phones, 600px and up) */
+    @media only screen and (min-width: 600px) {
+        table {
+            font-size: 12px;
+        }
+
+        .player-search-bar {
+            width: 70%;
+        }
+    }
+
+    /* Medium devices (landscape tablets, 768px and up) */
+    @media only screen and (min-width: 768px) {
+        table {
+            font-size: 12px;
+        }
+
+        .player-search-bar {
+            width: 60%;
+        }
+    }
+
+    /* Large devices (laptops/desktops, 992px and up) */
+    @media only screen and (min-width: 992px) {
+        table {
+            font-size: 12px;
+        }
+
+        .player-search-bar {
+            width: 50%;
+        }
+    }
+
+    /* Extra large devices (large laptops and desktops, 1200px and up) */
+    @media only screen and (min-width: 1200px) {
+        table {
+            font-size: 12px;
+        }
+
+        .player-search-bar {
+            width: 40%;
+        }
+    }
+
+    td {
+        max-width: 120px;
+        overflow: hidden;
+    }
+
+    a {
+        color: #fff !important;
+        text-decoration: none !important;
+    }
+
+    a:hover {
+        text-decoration: underline !important;
+    }
+
+    .footer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        background-color: #1c2131;
+        font-size: 15px;
+        margin-top: 100px;
+    }
+
+    .footer a{
+        text-decoration: underline !important;
+    }

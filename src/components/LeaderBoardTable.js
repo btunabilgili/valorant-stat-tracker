@@ -1,6 +1,8 @@
 import Table from "react-bootstrap/Table";
 import { useEffect, useState } from "react";
-import CircularProgress from "@mui/material/CircularProgress"
+import CircularProgress from "@mui/material/CircularProgress";
+import { Link } from 'react-router-dom';
+import ServerDown from "../components/ServerDown";
 
 function LeaderBoardTable(props) {
   const [leaderboardData, setLeaderboardData] = useState([]);
@@ -25,19 +27,20 @@ function LeaderBoardTable(props) {
   }
   else if (serverDown) {
     return (
-      <div style={{ color: "#ff4655", fontWeight: "bold" }}>Server Down!</div>
+      <ServerDown />
     );
   }
   else {
     return (
       <>
-        <div className="table-responsive" style={{width: "100%"}}>
+        <div className="table-responsive" style={{ width: "100%" }}>
           <Table
             // responsive={true}
             striped={props.striped}
             hover={props.hover}
             variant={props.variant}
             style={{ color: "#fff", backgroundColor: "#252a3c" }}
+            key={props.region}
           >
             <thead>
               <tr>
@@ -52,16 +55,14 @@ function LeaderBoardTable(props) {
             </thead>
             <tbody>
               {leaderboardData.length > 0 &&
-                leaderboardData.slice(0, 5).map((leaderboardData) => {
+                leaderboardData.slice(0, 5).map((leaderboardData, index) => {
                   return (
-                    <tr key={leaderboardData.puuid}>
+                    <tr key={index}>
                       <td>{leaderboardData.leaderboardRank}</td>
                       <td>
-                        <a href="www.google.com">
-                          {leaderboardData.gameName
-                            ? ((leaderboardData.gameName + "#" + leaderboardData.tagLine).length > 13 ? (leaderboardData.gameName + "#" + leaderboardData.tagLine).substring(0, 10) + "..." : (leaderboardData.gameName + "#" + leaderboardData.tagLine))
-                            : "Secret Agent"}
-                        </a>
+                        {leaderboardData.gameName ? <Link to={`/playerprofile/${props.region}/${leaderboardData.gameName}-${leaderboardData.tagLine}`}>
+                          {((leaderboardData.gameName + "#" + leaderboardData.tagLine).length > 13 ? (leaderboardData.gameName + "#" + leaderboardData.tagLine).substring(0, 10) + "..." : (leaderboardData.gameName + "#" + leaderboardData.tagLine))}
+                        </Link> : "Secret Agent"}
                       </td>
                       <td>{leaderboardData.rankedRating}</td>
                       <td>{leaderboardData.numberOfWins}</td>
