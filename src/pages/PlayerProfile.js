@@ -17,7 +17,7 @@ function PlayerProfilePage() {
     fetch("https://api.henrikdev.xyz/valorant/v1/account/" + user[0] + "/" + user[1])
       .then((response) => response.json())
       .then((data) => {
-        if (data && data.status === 403 || data.status === 429) {
+        if (data && (data.status === 403 || data.status === 429)) {
           setServerDown(true);
         }
         else {
