@@ -13,7 +13,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/leaderboards" element={<LeaderboardsPage />} />
-        <Route path="/playerprofile/:region/:user" element={<PlayerProfilePage />} />
+        <Route path="/playerprofile/:user" element={<PlayerProfilePage />} />
         <Route path="*" element={<PageNotFound />} />
       </Routes>
       <div className="footer">

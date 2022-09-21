@@ -60,7 +60,7 @@ function LeaderBoardTable(props) {
                     <tr key={index}>
                       <td>{leaderboardData.leaderboardRank}</td>
                       <td>
-                        {leaderboardData.gameName ? <Link to={`/playerprofile/${props.region}/${leaderboardData.gameName}-${leaderboardData.tagLine}`}>
+                        {leaderboardData.gameName ? <Link to={`/playerprofile/${leaderboardData.gameName}-${leaderboardData.tagLine}`}>
                           {((leaderboardData.gameName + "#" + leaderboardData.tagLine).length > 13 ? (leaderboardData.gameName + "#" + leaderboardData.tagLine).substring(0, 10) + "..." : (leaderboardData.gameName + "#" + leaderboardData.tagLine))}
                         </Link> : "Secret Agent"}
                       </td>

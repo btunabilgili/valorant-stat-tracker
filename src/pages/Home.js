@@ -9,21 +9,27 @@ import IconButton from '@mui/material/IconButton';
 import SearchIcon from '@mui/icons-material/Search';
 import Button from "@mui/material/Button";
 import { useNavigate } from "react-router-dom";
+import { useState } from 'react';
 import "../styles/home.css";
 
 
 function HomePage() {
     let navigate = useNavigate();
+    const[input, setInput] = useState("");
     document.title = "Valorant Stat Tracker";
     return (
         <>
             <section className="search-section">
-                <div style={{color: "white", fontSize: "25px"}}>VALORANT.GG <span className="brand">for <a href="https://playvalorant.com/" target="_blank" rel="noopener noreferrer">VALORANT</a></span></div>
+                <div style={{ color: "white", fontSize: "25px" }}>VALORANT.GG <span className="brand">for <a href="https://playvalorant.com/" target="_blank" rel="noopener noreferrer">VALORANT</a></span></div>
                 <Paper
                     component="form"
                     onSubmit={(e) => {
                         e.preventDefault();
-                        navigate('/leaderboards');
+                        var player = input.split("#");
+                        if(!player || player.length !== 2 || !input.includes("#"))
+                            navigate("/pagenotfound");
+
+                        navigate('/playerprofile/' + player[0] + "-" + player[1]);
                     }}
                     sx={{ p: '2px 4px', display: 'flex', alignItems: 'center', margin: '100px auto 20px auto', backgroundColor: "black", border: "1px solid rgb(255, 70, 85)" }}
                     className={"player-search-bar"}
@@ -32,17 +38,24 @@ function HomePage() {
                         sx={{ ml: 1, flex: 1, color: "white" }}
                         placeholder="Search Players (Name#TAG)"
                         inputProps={{ 'aria-label': 'search players' }}
+                        onChange= {(e) => {
+                            setInput(e.target.value);
+                        }}
                     />
-                    <IconButton type="button" sx={{ p: '10px', color: "rgb(255, 70, 85)" }} aria-label="search" onSubmit={(e) => {
+                    <IconButton type="button" sx={{ p: '10px', color: "rgb(255, 70, 85)" }} aria-label="search" onClick={(e) => {
                         e.preventDefault();
-                        alert("fired");
+                        var player = input.split("#");
+                        if(!player || player.length !== 2 || !input.includes("#"))
+                            navigate("/pagenotfound");
+
+                        navigate('/playerprofile/' + player[0] + "-" + player[1]);
                     }}>
                         <SearchIcon />
                     </IconButton>
                     <Divider sx={{ height: 28, m: 0.5 }} orientation="vertical" />
                 </Paper>
                 <Container style={{ textAlign: "center" }}>
-                    <Button variant="contained" color="error" size="medium" onClick={() => { window.open("https://auth.riotgames.com/login", '_blank', 'noopener,noreferrer')}} startIcon={
+                    <Button variant="contained" color="error" size="medium" onClick={() => { window.open("https://auth.riotgames.com/login", '_blank', 'noopener,noreferrer') }} startIcon={
                         <img src="/images/icons8-riot-games-48.png" alt="riot company icon" style={{ height: "24px", width: "24px" }} />}>Sign in with Riot</Button>
                     <div style={{ color: "gray", margin: "5px auto", fontSize: "12px" }}>Signing in with Riot makes your profile public. You can switch it to private.</div>
                 </Container>

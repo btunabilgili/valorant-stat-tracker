@@ -21,8 +21,7 @@ function PlayerMatchHistory(props) {
           var tempMatchModels = [];
           data.data.forEach((data) => {
             var matchModel = {};
-            console.log(data);
-            var player = data.players.all_players.find(x => x.name === props.name && x.tag === props.tag);
+            var player = data.players.all_players.find(x => x.name.toUpperCase() === props.name.toUpperCase() && x.tag.toUpperCase() === props.tag.toUpperCase());
             matchModel.team = data.teams[(player.team).toLowerCase()];
             matchModel.player = player;
             matchModel.metadata = data.metadata;
