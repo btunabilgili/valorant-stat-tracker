@@ -8,7 +8,7 @@ import "./styles/main.css";
 
 function App() {
   return (
-    <div className="App">
+    <div className="app">
       <NavigationBar />
       <Routes>
         <Route path="/" element={<Home />} />

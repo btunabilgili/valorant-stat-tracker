@@ -1,6 +1,11 @@
-function ServerDown(){
+import { Container } from "react-bootstrap";
+
+function ServerDown() {
     return (
-        <div style={{ color: "#ff4655", fontWeight: "bold" }}>Server Down!</div>
+        <Container className="d-flex flex-column justify-content-center align-items-center" style={{backgroundColor: "black", height: "82%"}}>
+            <div style={{ color: "#ff4655", fontWeight: "bold" }}>Server Down!</div>
+            <img src="/images/server-down.gif" alt="server-down" style={{width: "60%"}}/>
+        </Container>
     );
 }
 

@@ -3,6 +3,9 @@ import { useParams } from 'react-router-dom';
 import { useEffect, useState } from "react";
 import PlayerDetails from "../components/PlayerDetails";
 import PlayerMatchHistory from "../components/PlayerMatchHistory";
+import ServerDown from "../components/ServerDown";
+import { CircularProgress } from "@mui/material";
+import "../styles/player.css";
 function PlayerProfilePage() {
   var params = useParams();
   var user = params.user.split("-");
@@ -11,9 +14,9 @@ function PlayerProfilePage() {
   const [serverDown, setServerDown] = useState(false);
   const [loading, setLoading] = useState(true);
   useEffect(() => {
-    if(!params || !params.user || !params.user.includes("-") || !user || user.length !== 2)
+    if (!params || !params.user || !params.user.includes("-") || !user || user.length !== 2)
       return;
-    
+
     fetch("https://api.henrikdev.xyz/valorant/v1/account/" + user[0] + "/" + user[1])
       .then((response) => response.json())
       .then((data) => {
@@ -40,21 +43,27 @@ function PlayerProfilePage() {
       </Container>
     );
   }
-  else if (serverDown){
+  else if (serverDown) {
     return (
-      <div>Server down!</div>
+      <ServerDown />
     );
   }
-  else if (loading){
+  else if (loading) {
     return (
-      <div>loading</div>
+      <Container>
+        <CircularProgress />
+      </Container>
     );
   }
   else {
     return (
       <>
-        <PlayerDetails name={user[0]} tag={user[1]} region={region} />
-        <PlayerMatchHistory name={user[0]} tag={user[1]} region={region} />
+        <Container>
+          <h3 className="section-header">Player Details</h3>
+          <PlayerDetails name={user[0]} tag={user[1]} region={region} />
+          <h3 className="section-header" style={{marginBottom: "40px"}}>Match Hisotry <span style={{ fontSize: "10px" }}>Only last 5 match info is provided</span></h3>
+          <PlayerMatchHistory name={user[0]} tag={user[1]} region={region} />
+        </Container>
       </>
     );
   }

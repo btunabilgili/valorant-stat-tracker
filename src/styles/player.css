@@ -1,4 +1,10 @@
-.player-match-container{
+.player-details {
+    color: white;
+    font-weight: bold;
+    background-color: #252a3c;
+}
+
+.player-match-container {
     color: white;
     margin-bottom: 10px;
 }
@@ -17,7 +23,7 @@
 
 .player-portrait {
     height: 56px;
-    border-radius: 9999px; 
+    border-radius: 9999px;
 }
 
 .player-portrait-won {
@@ -35,4 +41,11 @@
 
 .bold {
     font-weight: bold;
+}
+
+.section-header {
+    color: white;
+    font-weight: bold;
+    padding: 12px;
+    margin: 0px 0px 10px 0px;
 }
