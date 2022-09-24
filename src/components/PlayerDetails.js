@@ -2,6 +2,7 @@ import { CircularProgress } from "@mui/material";
 import { useEffect, useState } from "react";
 import { Container } from "react-bootstrap";
 import ServerDown from "./ServerDown";
+import React from "react";
 
 function PlayerDetails(props) {
   const [playerData, setPlayerData] = useState({});

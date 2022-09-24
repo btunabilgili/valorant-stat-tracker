@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import CircularProgress from "@mui/material/CircularProgress";
 import { Link } from 'react-router-dom';
 import ServerDown from "../components/ServerDown";
+import React from "react";
 
 function LeaderBoardTable(props) {
   const [leaderboardData, setLeaderboardData] = useState([]);

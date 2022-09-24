@@ -1,9 +1,11 @@
+import React from "react";
 import { Routes, Route } from "react-router-dom";
 import NavigationBar from "./components/NavigationBar";
 import Home from "./pages/Home";
 import LeaderboardsPage from "./pages/Leaderboards";
 import PlayerProfilePage from "./pages/PlayerProfile";
 import PageNotFound from "./pages/PageNotFound";
+import MapsPage from "./pages/Maps";
 import "./styles/main.css";
 
 function App() {
@@ -14,6 +16,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/leaderboards" element={<LeaderboardsPage />} />
         <Route path="/playerprofile/:user" element={<PlayerProfilePage />} />
+        <Route path="/game/maps" element={<MapsPage />} />
         <Route path="*" element={<PageNotFound />} />
       </Routes>
       <div className="footer">

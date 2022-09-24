@@ -17,3 +17,7 @@
     color: rgb(255, 70, 85) !important;
     font-size: 15px;
 }
+
+.dropdown-menu.show {
+    background-color: #27272f;
+}

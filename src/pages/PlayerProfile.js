@@ -6,6 +6,8 @@ import PlayerMatchHistory from "../components/PlayerMatchHistory";
 import ServerDown from "../components/ServerDown";
 import { CircularProgress } from "@mui/material";
 import "../styles/player.css";
+import React from "react";
+
 function PlayerProfilePage() {
   var params = useParams();
   var user = params.user.split("-");

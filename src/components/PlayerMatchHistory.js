@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import CircularProgress from "@mui/material/CircularProgress";
 import ServerDown from "./ServerDown";
 import "../styles/player.css";
+import React from "react";
 
 function PlayerMatchHistory(props) {
   const [matchModels, setMatchModel] = useState([]);
